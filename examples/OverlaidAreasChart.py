@@ -9,7 +9,7 @@ overlaidAreaSeriesOptions = {
             "top": 0.1,
             "bottom": 0.1,
         },
-        "mode": 2, # PriceScaleMode: 0-Normal, 1-Logarithmic, 2-Percentage, 3-IndexedTo100
+        "mode": 0, # PriceScaleMode: 0-Normal, 1-Logarithmic, 2-Percentage, 3-IndexedTo100
         "borderColor": 'rgba(197, 203, 206, 0.4)',
     },
     "timeScale": {
@@ -17,8 +17,9 @@ overlaidAreaSeriesOptions = {
     },
     "layout": {
         "background": {
-            "type": 'solid',
-            "color": '#100841'
+            "type": 'gradient',
+            "topColor": '#328ba8',
+            "bottomColor": '#a83232'
         },
         "textColor": '#ffffff',
     },
@@ -85,6 +86,14 @@ seriesOverlaidChart = [
     }
 ]
 st.subheader("Overlaid Series with Markers")
+
+price_lines = [
+    {"price": 140, "color": "green", "lineWidth": 2, "lineStyle": "Dotted"},
+    {"price": 15, "color": "red", "lineWidth": 2, "lineStyle": "Dotted"}
+]
+
+# Add the price lines to the chart options
+overlaidAreaSeriesOptions["priceLines"] = price_lines
 
 renderLightweightCharts([
     {
